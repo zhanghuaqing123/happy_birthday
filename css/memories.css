@@ -601,25 +601,85 @@
 	transform: scale(1, 1);
 	transition-delay: 3.5s;
 }
-/*图片*/
-.ly-imgbox11{
+/*统一布局容器*/
+.screen-container {
 	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 70%;
-	border-radius: 8px;
-	opacity:0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	max-width: 800px;
+	opacity: 0;
+	transition: all 1s;
+}
+.active .screen-container {
+	opacity: 1;
+	transition-delay: 2s;
+}
+
+/*两张图片并排布局*/
+.image-pair {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	margin-bottom: 20px;
+}
+
+/*统一图片样式*/
+.ly-imgbox {
+	position: relative;
+	width: 300px;
+	height: 200px;
+	border-radius: 12px;
 	overflow: hidden;
-	transition:all 0.5s;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+	transition: all 0.5s;
+	opacity: 0;
+	transform: translateY(30px);
 }
-.active .ly-imgbox11{
-	opacity:1;
-	transition-delay:3.5s;
+.active .ly-imgbox {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 2.5s;
 }
-.ly-img11{
-	position: absolute;
+.ly-imgbox:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+.ly-img {
 	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/*图片标题*/
+.img-caption {
+	position: absolute;
 	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(transparent, rgba(0,0,0,0.7));
+	color: white;
+	padding: 20px 15px 10px;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: center;
+}
+
+/*文字说明*/
+.screen-text {
+	text-align: center;
+	color: #333;
+	font-size: 16px;
+	line-height: 1.6;
+	padding: 0 20px;
+	opacity: 0;
+	transition: all 0.5s;
+}
+.active .screen-text {
+	opacity: 1;
+	transition-delay: 3s;
 }
 /*文本*/
 .ly-txt11 {
@@ -815,26 +875,7 @@
 	transform: scale(1, 1);
 	transition-delay: 3.5s;
 }
-/*图片*/
-.ly-imgbox21{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 70%;
-	border-radius: 8px;
-	opacity:0;
-	overflow: hidden;
-	transition:all 0.5s;
-}
-.active .ly-imgbox21{
-	opacity:1;
-	transition-delay:3.5s;
-}
-.ly-img21{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-}
+/*已合并到统一图片样式*/
 /*文本*/
 .ly-txt21 {
 	font-family: Microsoft YaHei;
@@ -955,26 +996,7 @@
 	opacity:1;
 	transition-delay: 7.0s;
 }
-/*图片*/
-.ly-imgbox22{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 80%;
-	border-radius: 8px;
-	opacity:0;
-	overflow: hidden;
-	transition:all 0.5s;
-}
-.active .ly-imgbox22{
-	opacity:1;
-	transition-delay:6s;
-}
-.ly-img22{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-}
+/*已合并到统一图片样式*/
 
 /* 盒子 */
 .ly-box23 {
@@ -1056,26 +1078,7 @@
 	opacity:1;
 	transition-delay: 14s;
 }
-/*图片*/
-.ly-imgbox23{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 80%;
-	border-radius: 8px;
-	opacity:0;
-	overflow: hidden;
-	transition:all 0.5s;
-}
-.active .ly-imgbox23{
-	opacity:1;
-	transition-delay:12s;
-}
-.ly-img23{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-}
+/*已合并到统一图片样式*/
 
 
 
@@ -1150,26 +1153,7 @@
 	transform: scale(1, 1);
 	transition-delay: 3.5s;
 }
-/*图片*/
-.ly-imgbox31{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 70%;
-	border-radius: 8px;
-	opacity:0;
-	overflow: hidden;
-	transition:all 0.5s;
-}
-.active .ly-imgbox31{
-	opacity:1;
-	transition-delay:3.5s;
-}
-.ly-img31{
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-}
+/*已合并到统一图片样式*/
 /*文本*/
 .ly-txt31 {
 	font-family: Microsoft YaHei;
@@ -1375,13 +1359,10 @@
 }
 
 .ly-imgbox61{
-	position: absolute;
-	bottom: 0;
+	position: relative;
 	width: 100%;
-	height: 41%;
 	border-radius: 8px;
 	opacity:0;
-	overflow: hidden;
 	transition:all 0.5s;
 }
 .active .ly-imgbox61{
@@ -1389,10 +1370,8 @@
 	transition-delay:12s;
 }
 .ly-img61{
-	position: absolute;
 	width: 100%;
-	bottom: 0;
-	margin-bottom:-250px;
+	height: auto;
 }
 .ly-txt61 {
 	text-indent:2em;
@@ -1441,13 +1420,10 @@
 }
 /*图片*/
 .ly-imgbox71{
-	position: absolute;
-	bottom: 0;
+	position: relative;
 	width: 100%;
-	height: 70%;
 	border-radius: 8px;
 	opacity:0;
-	overflow: hidden;
 	transition:all 0.5s;
 }
 .active .ly-imgbox71{
@@ -1455,9 +1431,8 @@
 	transition-delay:6.5s;
 }
 .ly-img71{
-	position: absolute;
 	width: 100%;
-	bottom: 0;
+	height: auto;
 }
 .ly-box71 {
 	width: 15%;

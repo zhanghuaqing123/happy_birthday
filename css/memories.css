@@ -628,14 +628,16 @@
 /*统一图片样式*/
 .ly-imgbox {
 	position: relative;
-	width: 300px;
-	height: 200px;
+	max-width: 400px;
+	min-height: 200px;
 	border-radius: 12px;
 	overflow: hidden;
 	box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 	transition: all 0.5s;
 	opacity: 0;
 	transform: translateY(30px);
+	display: flex;
+	flex-direction: column;
 }
 .active .ly-imgbox {
 	opacity: 1;
@@ -649,22 +651,23 @@
 
 .ly-img {
 	width: 100%;
-	height: 100%;
-	object-fit: cover;
+	height: auto;
+	max-height: 300px;
+	object-fit: contain;
+	border-radius: 8px;
 }
 
 /*图片标题*/
 .img-caption {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: linear-gradient(transparent, rgba(0,0,0,0.7));
-	color: white;
-	padding: 20px 15px 10px;
-	font-size: 14px;
-	font-weight: 500;
+	padding: 12px;
 	text-align: center;
+	font-size: 14px;
+	color: #333;
+	background: rgba(255,255,255,0.95);
+	border-radius: 0 0 8px 8px;
+	margin-top: auto;
+	font-weight: 500;
+	border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 /*文字说明*/
@@ -680,6 +683,77 @@
 .active .screen-text {
 	opacity: 1;
 	transition-delay: 3s;
+}
+
+/* 选项卡样式 */
+.choice-container {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	margin: 30px 0;
+}
+
+.choice-btn {
+	padding: 15px 30px;
+	font-size: 18px;
+	background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+	color: white;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.choice-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+	background: linear-gradient(135deg, #ff8fab, #ffa8c5);
+}
+
+.choice-btn:active {
+	transform: translateY(0);
+}
+
+.choice-result {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: all 0.5s ease;
+}
+
+.choice-result.show {
+	opacity: 1;
+	transform: translateY(0);
+	display: block !important;
+}
+
+.result-text {
+	text-align: center;
+	font-size: 20px;
+	color: #ff6b9d;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+/* 爱心飘浮动画 */
+@keyframes floatUp {
+	0% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-100px) scale(1.2);
+	}
+}
+
+.floating-heart {
+	position: fixed;
+	color: #ff6b9d;
+	font-size: 20px;
+	pointer-events: none;
+	animation: floatUp 2s ease-out forwards;
+	z-index: 1000;
 }
 /*文本*/
 .ly-txt11 {
